@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Sea_Battle"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Canvas Background="AliceBlue" x:Name="field"  Width="300" Height="300">
         
-    </Grid>
+    </Canvas>
 </Window>
