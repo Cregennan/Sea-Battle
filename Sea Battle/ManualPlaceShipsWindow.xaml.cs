@@ -30,6 +30,7 @@ namespace Sea_Battle
         List<Rectangle> ShipProviders;
 
 
+
         public ManualPlaceShipsWindow()
         {
 
@@ -43,6 +44,23 @@ namespace Sea_Battle
             UpdateField(gField, field);
 
 
+        }
+
+        void UpdateShipProviderColors()
+        {
+            for(int i = 0; i<4; i++)
+            {
+                if (gField.Sizes[3 - i] == 0)
+                {
+                    ShipProviders[i].Fill = GameEngine.Colors.EditorShipProviderUnavailable;
+                    ShipProviders[i].Stroke = GameEngine.Colors.EditorShipProviderUnavailable;
+                }
+                else
+                {
+                    ShipProviders[i].Fill = GameEngine.Colors.EditorShipProviderAvailable;
+                    ShipProviders[i].Stroke = GameEngine.Colors.EditorShipProviderAvailable;
+                }
+            }
         }
 
         void PlaceProvidersHorizontally()
@@ -129,6 +147,7 @@ namespace Sea_Battle
                     UpdateCellColor(p, gField, field);
                 }
             }
+            UpdateShipProviderColors();
         }
         void InitFieldRects(Canvas canv, GameField gField)
         {
@@ -219,7 +238,7 @@ namespace Sea_Battle
                 }
             }
 
-            SolidColorBrush color = gField.TryPlaceShip(length, pos, direction) ? GameEngine.Colors.CreatorShipPlacementAvailable : GameEngine.Colors.CreatorShipPlacementUnavailable;
+            SolidColorBrush color = gField.TryPlaceShip(length, pos, direction) ? GameEngine.Colors.EditorShipPlacementAvailable : GameEngine.Colors.EditorShipPlacementUnavailable;
 
             foreach(var point in shipPoints){
                 ((Button)field.Children[GameEngine.GetInlinePosition(point)]).Background = color;
@@ -234,25 +253,38 @@ namespace Sea_Battle
         {
             //LENGTH, DIRECTION
             var data = 4;
-            DragDrop.DoDragDrop((Rectangle)sender, new DataObject(DataFormats.Serializable, data), DragDropEffects.Move);
+            if (gField.Sizes[data - 1] != 0)
+            {
+                DragDrop.DoDragDrop((Rectangle)sender, new DataObject(DataFormats.Serializable, data), DragDropEffects.Move);
+            }
         }
 
         private void ThreeShipProvider_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var data = 3;
-            DragDrop.DoDragDrop((Rectangle)sender, new DataObject(DataFormats.Serializable, data), DragDropEffects.Move);
+            if (gField.Sizes[data - 1] != 0)
+            {
+                DragDrop.DoDragDrop((Rectangle)sender, new DataObject(DataFormats.Serializable, data), DragDropEffects.Move);
+            }
+
         }
 
         private void TwoShipProvider_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var data = 2;
-            DragDrop.DoDragDrop((Rectangle)sender, new DataObject(DataFormats.Serializable, data), DragDropEffects.Move);
+            if (gField.Sizes[data - 1] != 0)
+            {
+                DragDrop.DoDragDrop((Rectangle)sender, new DataObject(DataFormats.Serializable, data), DragDropEffects.Move);
+            }
         }
 
         private void OneShipProvider_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var data = 1;
-            DragDrop.DoDragDrop((Rectangle)sender, new DataObject(DataFormats.Serializable, data), DragDropEffects.Move);
+            if (gField.Sizes[data - 1] != 0)
+            {
+                DragDrop.DoDragDrop((Rectangle)sender, new DataObject(DataFormats.Serializable, data), DragDropEffects.Move);
+            }
         }
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)

@@ -13,6 +13,7 @@ namespace Sea_Battle
             {
                 return (SolidColorBrush)new BrushConverter().ConvertFrom(hex);
             }
+
             public static SolidColorBrush FieldEmpty = GetColorFromRGBA("#FF2222FF");
             public static SolidColorBrush FieldUnplacable = FieldEmpty;
             public static SolidColorBrush FieldUnknown = FieldEmpty;
@@ -24,12 +25,14 @@ namespace Sea_Battle
             public static SolidColorBrush FieldTotalDestroyedShip = GetColorFromRGBA("#FF994444");
 
             public static SolidColorBrush EditorFieldUnplacable =  GetColorFromRGBA("#FF999999");
+            public static SolidColorBrush EditorShipPlacementUnavailable = GetColorFromRGBA("#FFFF0000");
+            public static SolidColorBrush EditorShipPlacementAvailable = GetColorFromRGBA("#FF00FF00");
+
+            public static SolidColorBrush EditorShipProviderAvailable = GetColorFromRGBA("#FFAAAAAA");
+            public static SolidColorBrush EditorShipProviderUnavailable = GetColorFromRGBA("#00AAAAAA");
 
 
 
-
-            public static SolidColorBrush CreatorShipPlacementUnavailable = GetColorFromRGBA("#FFFF0000");
-            public static SolidColorBrush CreatorShipPlacementAvailable = GetColorFromRGBA("#FF00FF00");
 
         }
 
