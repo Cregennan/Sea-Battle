@@ -289,15 +289,26 @@ namespace Sea_Battle
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Space)
-            {
-               ToggleShipPlacementDirection();
-            }
+            //if (e.Key == Key.Space)
+            //{
+            //   ToggleShipPlacementDirection();
+            //}
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             gField.MakeRandomShipPlacement();
+            UpdateField(gField, field);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ToggleShipPlacementDirection();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            gField.Clear();
             UpdateField(gField, field);
         }
     }
