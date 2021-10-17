@@ -294,5 +294,11 @@ namespace Sea_Battle
                ToggleShipPlacementDirection();
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            gField.MakeRandomShipPlacement();
+            UpdateField(gField, field);
+        }
     }
 }

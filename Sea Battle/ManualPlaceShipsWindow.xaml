@@ -16,6 +16,7 @@
             <Rectangle Fill="#FFF4F4F5" MouseDown="ThreeShipProvider_MouseDown" x:Name="ThreeShipProvider" Canvas.Left="70" Stroke="Black" Canvas.Top="17" Width="30" Height="90"/>
             <Rectangle Fill="#FFF4F4F5" MouseDown="TwoShipProvider_MouseDown" x:Name="TwoShipProvider" Canvas.Left="120" Stroke="Black" Canvas.Top="17" Width="30" Height="60"/>
             <Rectangle Fill="#FFF4F4F5" MouseDown="OneShipProvider_MouseDown" x:Name="OneShipProvider" Canvas.Left="170" Stroke="Black" Canvas.Top="17" Width="30" Height="30"/>
+            <Button Content="Случайная растановка" Canvas.Left="20" Canvas.Top="267" Width="151" Height="23" Click="Button_Click"/>
         </Canvas>
     </Canvas>
 </Window>
