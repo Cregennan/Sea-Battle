@@ -18,11 +18,18 @@ namespace Sea_Battle
             public static SolidColorBrush FieldUnknown = FieldEmpty;
             public static SolidColorBrush FieldNotPresents = GetColorFromRGBA("#FFAAAAAA");
             public static SolidColorBrush FieldDropped = GetColorFromRGBA("#FF444444");
-            //public static SolidColorBrush FieldShip = GetColorFromRGBA("#FFFF9999");
-            public static SolidColorBrush FieldShip = FieldEmpty;
+            public static SolidColorBrush FieldShip = GetColorFromRGBA("#FFFF9999");
+            //public static SolidColorBrush FieldShip = FieldEmpty;
             public static SolidColorBrush FieldDestroyedShipPiece = GetColorFromRGBA("#FFAA6666");
             public static SolidColorBrush FieldTotalDestroyedShip = GetColorFromRGBA("#FF994444");
 
+            public static SolidColorBrush EditorFieldUnplacable =  GetColorFromRGBA("#FF999999");
+
+
+
+
+            public static SolidColorBrush CreatorShipPlacementUnavailable = GetColorFromRGBA("#FFFF0000");
+            public static SolidColorBrush CreatorShipPlacementAvailable = GetColorFromRGBA("#FF00FF00");
 
         }
 
@@ -76,6 +83,16 @@ namespace Sea_Battle
             int y = inlinePosition / 10;
             return new Point(inlinePosition % 10, y);
         }
+
+        public class Editor
+        {
+            public const int LeftMargin = 20;
+            public const int TopMargin = 20;
+        }
+
+
+
+
 
         public class AttackResults
         {
