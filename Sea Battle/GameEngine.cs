@@ -87,5 +87,12 @@ namespace Sea_Battle
             public const int NoMoreShips = 5;
         }
 
+        public class AI
+        {
+            public const int RandomSeekingState = 0;
+            public const int ShipPartFoundState = 1;
+        }
+
+
     }
 }
