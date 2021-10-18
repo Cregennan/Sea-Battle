@@ -9,7 +9,11 @@ namespace Sea_Battle
     public class GameField
     {
         public int[,] Field { get; private set; } = new int[10, 10];
-        public int[] Sizes { get; private set; } = new int[4];
+        public int[] Sizes { get; private set; } = new int[4] {4, 3, 2, 1 };
+
+        List<Point> ships = new List<Point>();
+
+
 
         public int ShipCount { get; private set; }
 
@@ -52,6 +56,10 @@ namespace Sea_Battle
 
             List<Point> hoodPoints = new List<Point>();
 
+            if (Sizes[length - 1] == 0)
+            {
+                return false;
+            }
             Vector directionVector = GameEngine.DirectionVectors.GetDirectionVector(direction);
 
             Point currentPosition = Point.Add(position, new Vector(0, 0));
@@ -72,22 +80,54 @@ namespace Sea_Battle
             }
             foreach (Point p in hoodPoints)
             {
-                Field[(int)p.X, (int)p.Y] = GameEngine.FieldStates.Unplacable;
+                SetFState(p, GameEngine.FieldStates.Unplacable);
             }
 
             foreach (Point p in shipPoints)
             {
-                Field[(int) p.X, (int) p.Y] = GameEngine.FieldStates.Ship;
+                SetFState(p,GameEngine.FieldStates.Ship);
             }
 
+            Sizes[length - 1]--;
             ShipCount++;
+            ships.Add(position);
+            return true;
+        }
+        public bool TryPlaceShip(int length, Point position, int direction)
+        {
+            List<Point> shipPoints = new List<Point>();
+
+            List<Point> hoodPoints = new List<Point>();
+
+            Vector directionVector = GameEngine.DirectionVectors.GetDirectionVector(direction);
+
+            Point currentPosition = Point.Add(position, new Vector(0, 0));
+            if (Sizes[length - 1] == 0)
+            {
+                return false;
+            }
+            for (int i = 0; i < length; i++)
+            {
+                if (IsShipPartPlacable(currentPosition))
+                {
+
+                    shipPoints.Add(currentPosition);
+                    hoodPoints.AddRange(GetHood(currentPosition));
+                    currentPosition = Point.Add(currentPosition, directionVector);
+                }
+                else
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
         public void Clear()
         {
             Field = new int[10, 10];
-            Sizes = new int[4];
+            Sizes = new int[4] {4,3,2,1 };
+            ships.Clear();
         }
 
         public void MakeRandomShipPlacement()
@@ -220,6 +260,47 @@ namespace Sea_Battle
 
             return points;
         }
+
+        public bool RemoveShip(Point p)
+        {
+            var shipPoints = GetAllShipParts(p);
+            int length = shipPoints.Count;
+            if (length == 0)
+            {
+                return false;
+            }
+            Sizes[length - 1]++;
+
+
+
+
+            var hood = GetShipNeighbourhood(p);
+
+
+            foreach(var point in shipPoints)
+            {
+                SetFState(point, GameEngine.FieldStates.Unknown);
+                ships.Remove(point);
+            }
+            foreach(var point in hood)
+            {
+                if (isEmptyFound(p))
+                {
+                    SetFState(point, GameEngine.FieldStates.Unknown);
+                }
+            }
+            foreach(var ship in ships)
+            {
+                List<Point> current_hood = GetShipNeighbourhood(ship);
+                foreach(var point in current_hood)
+                {
+                    SetFState(point, GameEngine.FieldStates.Unplacable);
+                }
+            }
+
+            return true;
+        }
+
 
 
         public (int, List<Point>) PerformAttack(Point p)
