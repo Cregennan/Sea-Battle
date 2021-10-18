@@ -19,10 +19,11 @@ namespace Sea_Battle
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GameWindow : Window
     {
         GameField EnemyField = new GameField();
         
+        ISolver solver;
         void UpdateCellColor(Point p, GameField gField, Canvas field)
         {
             var pos = GameEngine.GetInlinePosition(p);
@@ -92,7 +93,7 @@ namespace Sea_Battle
 
             (int AttackResult, List<Point> shipPoints) = gField.PerformAttack(fieldPosition);
             HandleFieldEvent(AttackResult, shipPoints, gField, canv);
-            MessageBox.Show(AttackResult.ToString());
+            MessageBox.Show(GameEngine.AttackResults.Descriptor(AttackResult));
         }
 
         private void HandleFieldEvent(int AttackResult, List<Point> shipPoints, GameField gField, Canvas canv)
@@ -138,15 +139,42 @@ namespace Sea_Battle
         }
 
 
-        public MainWindow()
+        public GameWindow()
         {
             InitializeComponent();
                 
             InitFieldRects(field, EnemyField);
             EnemyField.MakeRandomShipPlacement();
            
-            
+            solver = AIFactory.Produce(EnemyField, GameEngine.AI.GameModeIntellectual);
             UpdateField(EnemyField, field);
+            Solve();
+        }
+        public async void Solve()
+        {
+            while (true)
+            {
+                (int result, List<Point> points) = solver.MakeStep();
+                HandleFieldEvent(result, points, EnemyField, field);
+                if (result == GameEngine.AttackResults.NoMoreShips)
+                {
+                    break;
+                }
+                else
+                {
+                    await Task.Delay(300);
+                }
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Canvas canv = field;
+
+            (int AttackResult, List<Point> shipPoints) = solver.MakeStep();
+
+            HandleFieldEvent(AttackResult, shipPoints, EnemyField, canv);
+            MessageBox.Show(this, GameEngine.AttackResults.Descriptor(AttackResult));
         }
 
     }

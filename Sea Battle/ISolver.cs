@@ -10,6 +10,5 @@ namespace Sea_Battle
     interface ISolver
     {
         (int, List<Point>) MakeStep();
-        Isolver();
     }
 }
