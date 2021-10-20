@@ -4,13 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sea_Battle"
+        ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Хуй" Height="50" Width="100" Margin="114,310,578,59" Click="Button_Click"></Button>
-        <Canvas Background="AliceBlue" x:Name="field"  Width="300" Height="300">
+        Title="MainWindow" Height="450" Width="800" x:Name="mainwindow">
+
+    <Grid x:Name="mainGrid">
+        <Canvas Background="AliceBlue" x:Name="playerFieldCanvas"  Width="300" Height="300" Margin="43,84,451,37">
+            
+        </Canvas>
+        <Canvas Background="AliceBlue" x:Name="enemyFieldCanvas"  Width="300" Height="300" Margin="447,84,47,37">
 
         </Canvas>
+        <TextBlock HorizontalAlignment="Left" Margin="43,395,0,0" TextWrapping="Wrap" Text="Ваше поле" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="447,392,0,0" TextWrapping="Wrap" Text="Поле противника" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" x:Name="GameStatus" Margin="286,36,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="236" FontWeight="Bold" FontSize="16"/>
     </Grid>
     
 </Window>

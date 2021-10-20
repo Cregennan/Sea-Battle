@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentWPF, Version=0.10.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentWPF.0.10.2\lib\net45\FluentWPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -58,6 +61,10 @@
     <Compile Include="AIFactory.cs" />
     <Compile Include="AIIntellectual.cs" />
     <Compile Include="AIPureRandom.cs" />
+    <Compile Include="ColorPaletteWindow.xaml.cs">
+      <DependentUpon>ColorPaletteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FullscreenMessage.cs" />
     <Compile Include="InitWindow.xaml.cs">
       <DependentUpon>InitWindow.xaml</DependentUpon>
     </Compile>
@@ -65,7 +72,10 @@
     <Compile Include="ManualPlaceShipsWindow.xaml.cs">
       <DependentUpon>ManualPlaceShipsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ship.cs" />
+    <Page Include="ColorPaletteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InitWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -88,8 +98,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PlayerWonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlayerWonWindow.xaml.cs">
+      <DependentUpon>PlayerWonWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -107,6 +124,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -114,6 +132,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="еу.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Ricardo_Captain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\clean.png" />
+    <Resource Include="Images\rotate.png" />
+    <Resource Include="Images\shuffle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

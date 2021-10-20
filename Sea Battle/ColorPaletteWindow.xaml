@@ -1,0 +1,42 @@
+﻿<fw:AcrylicWindow x:Class="Sea_Battle.ColorPaletteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        xmlns:local="clr-namespace:Sea_Battle"
+        mc:Ignorable="d"
+        Title="Служебное окно - закрой его, матрос" Height="302.301" Width="409.356" Background="{x:Null}">
+    <Canvas x:Name="colors">
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="19" Stroke="Black" Canvas.Top="19" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="60" Stroke="Black" Canvas.Top="19" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="100" Stroke="Black" Canvas.Top="19" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="141" Stroke="Black" Canvas.Top="19" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="182" Stroke="Black" Canvas.Top="19" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="223" Stroke="Black" Canvas.Top="19" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="266" Stroke="Black" Canvas.Top="19" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="307" Stroke="Black" Canvas.Top="19" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="19" Stroke="Black" Canvas.Top="84" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="60" Stroke="Black" Canvas.Top="84" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="100" Stroke="Black" Canvas.Top="84" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="141" Stroke="Black" Canvas.Top="84" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="182" Stroke="Black" Canvas.Top="84" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="223" Stroke="Black" Canvas.Top="84" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="266" Stroke="Black" Canvas.Top="84" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="307" Stroke="Black" Canvas.Top="84" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="19" Stroke="Black" Canvas.Top="147" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="60" Stroke="Black" Canvas.Top="147" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="100" Stroke="Black" Canvas.Top="147" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="141" Stroke="Black" Canvas.Top="147" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="182" Stroke="Black" Canvas.Top="147" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="223" Stroke="Black" Canvas.Top="147" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="266" Stroke="Black" Canvas.Top="147" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="307" Stroke="Black" Canvas.Top="147" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="16" Stroke="Black" Canvas.Top="204" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="57" Stroke="Black" Canvas.Top="204" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="100" Stroke="Black" Canvas.Top="204" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="141" Stroke="Black" Canvas.Top="204" Width="28"/>
+        <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="182" Stroke="Black" Canvas.Top="204" Width="28"/>
+
+    </Canvas>
+</fw:AcrylicWindow>

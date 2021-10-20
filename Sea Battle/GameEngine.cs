@@ -14,25 +14,62 @@ namespace Sea_Battle
                 return (SolidColorBrush)new BrushConverter().ConvertFrom(hex);
             }
 
-            public static SolidColorBrush FieldEmpty = GetColorFromRGBA("#FF2222FF");
+            public static SolidColorBrush FieldEmpty = GetColorFromRGBA("#FF60A5FA");
             public static SolidColorBrush FieldUnplacable = FieldEmpty;
             public static SolidColorBrush FieldUnknown = FieldEmpty;
-            public static SolidColorBrush FieldNotPresents = GetColorFromRGBA("#FFAAAAAA");
-            public static SolidColorBrush FieldDropped = GetColorFromRGBA("#FF444444");
-            public static SolidColorBrush FieldShip = GetColorFromRGBA("#FFFF9999");
+            public static SolidColorBrush FieldNotPresents = GetColorFromRGBA("#FFDBEAFE");
+            public static SolidColorBrush FieldDropped = GetColorFromRGBA("#FF6B7280");
+            public static SolidColorBrush FieldShip = GetColorFromRGBA("#FF4C1D95");
             //public static SolidColorBrush FieldShip = FieldEmpty;
-            public static SolidColorBrush FieldDestroyedShipPiece = GetColorFromRGBA("#FFAA6666");
-            public static SolidColorBrush FieldTotalDestroyedShip = GetColorFromRGBA("#FF994444");
+            public static SolidColorBrush FieldDestroyedShipPiece = GetColorFromRGBA("#FFDB2777");
+            public static SolidColorBrush FieldTotalDestroyedShip = GetColorFromRGBA("#FF9D174D");
 
-            public static SolidColorBrush EditorFieldUnplacable =  GetColorFromRGBA("#FF999999");
-            public static SolidColorBrush EditorShipPlacementUnavailable = GetColorFromRGBA("#FFFF0000");
-            public static SolidColorBrush EditorShipPlacementAvailable = GetColorFromRGBA("#FF00FF00");
 
-            public static SolidColorBrush EditorShipProviderAvailable = GetColorFromRGBA("#FFAAAAAA");
+
+            public interface FieldColors
+            {
+                SolidColorBrush Empty {get; set; }
+                SolidColorBrush Unplacable {get; set; }
+                SolidColorBrush Unknown {get; set; }
+                SolidColorBrush NotPresents{get; set; }
+                SolidColorBrush Dropped {get; set; }
+                SolidColorBrush Ship {get; set; }
+                SolidColorBrush DestroyedShipPiece {get; set; } 
+                SolidColorBrush TotalDestroyedShip {get; set; }
+            }
+
+
+            public class GameEnemyField : FieldColors
+            {
+                public SolidColorBrush Empty {get;  set; } = GetColorFromRGBA("#FF60A5FA");
+                public SolidColorBrush Unplacable {get;  set; } = GetColorFromRGBA("#FF60A5FA");
+                public SolidColorBrush Unknown {get;  set; } = GetColorFromRGBA("#FF60A5FA");
+                public SolidColorBrush NotPresents {get;  set; } = GetColorFromRGBA("#FFDBEAFE");
+                public SolidColorBrush Dropped {get;  set; } = GetColorFromRGBA("#FF6B7280");
+                public SolidColorBrush Ship {get;  set; } = GetColorFromRGBA("#FF60A5FA");
+                public SolidColorBrush DestroyedShipPiece {get;  set; } = GetColorFromRGBA("#FFDB2777");
+                public SolidColorBrush TotalDestroyedShip {get;  set; } = GetColorFromRGBA("#FF9D174D");
+            }
+
+            public class GamePlayerField : FieldColors
+            {
+                public SolidColorBrush Empty {get;  set; } = GetColorFromRGBA("#FF60A5FA");
+                public SolidColorBrush Unplacable {get;  set; } = GetColorFromRGBA("#FF60A5FA");
+                public SolidColorBrush Unknown {get;  set; } =GetColorFromRGBA("#FF60A5FA");
+                public SolidColorBrush NotPresents {get;  set; } = GetColorFromRGBA("#FFDBEAFE");
+                public SolidColorBrush Dropped {get;  set; } = GetColorFromRGBA("#FF6B7280");
+                public SolidColorBrush Ship {get;  set; } = GetColorFromRGBA("#FF4C1D95");
+                public SolidColorBrush DestroyedShipPiece {get;  set; } = GetColorFromRGBA("#FFDB2777");
+                public SolidColorBrush TotalDestroyedShip {get;  set; } = GetColorFromRGBA("#FF9D174D");
+            }
+             
+
+            public static SolidColorBrush EditorFieldUnplacable =  GetColorFromRGBA("#FF9CA3AF");
+            public static SolidColorBrush EditorShipPlacementUnavailable = GetColorFromRGBA("#FFDC2626");
+            public static SolidColorBrush EditorShipPlacementAvailable = GetColorFromRGBA("#FF059669");
+
+            public static SolidColorBrush EditorShipProviderAvailable = GetColorFromRGBA("#FF6D28D9");
             public static SolidColorBrush EditorShipProviderUnavailable = GetColorFromRGBA("#00AAAAAA");
-
-
-
 
         }
 
@@ -134,6 +171,8 @@ namespace Sea_Battle
             public const int GameModeIntellectual = 0;
             public const int GameModeRandom = 1;
 
+            public const int WaitTimeMillis = 300; 
+
             public static String StateDescriptor(int state)
             {
                 switch(state)
@@ -162,6 +201,7 @@ namespace Sea_Battle
         }
         public class Messages
         {
+            //AttackResults
             public const String AttackResultMissed = "Промазал";
             public const String AttackResultHit = "Есть попадание";
             public const String AttackResultKilled = "Есть пробитие";
@@ -169,12 +209,41 @@ namespace Sea_Battle
             public const String AttackResultUnexpected = "Неожиданное поведение движка";
             public const String AttackResultNoMoreShips = "Победа!";
 
+            //AI
             public const String AIRandomSeekingState = "Состояние случайного выбора";
             public const String AIShipPartFoundState = "Состояние cледования за частями корабля";
             public const String AIGameModeIntellectual = "Сложность: сложная";
             public const String AIGameModeRandom = "Сложность: легкая";
 
+            //Engine
             public const String EngineUnexpectedState = "Ошибка движка. Ищите проблему в коде";
+
+            //Intro
+            public const String IntroGameModeEasy = "Легкая";
+            public const String IntroGameModeHard = "Тяжелая";
+
+
+
+            //Editor
+            public const String EditorNoEnoughShips = "Расставь все корабли";
+
+
+            //Game
+            public const String GameAIStep = "Ход компьютера";
+            public const String GamePlayerStep = "Ваш ход";
+
+            public const String GameAIFirstStep = "Первым ходит компьютер";
+            public const String GamePlayerFirstStep = "Первым ходите вы";
+
+            public const String GamePlayerWins = "Вы выиграли!";
+            public const String GameAIWins = "Вы проиграли!";
+
+
+            //End
+            public const String EndPlayerWonTitle = "Поздравляю, Матрос!";
+            public const String EndPlayerWonText = "Мы выиграли эту битву, но война еще впереди";
+            public const String EndPlayerLostTitle = "Ничего страшного, Матрос!";
+            public const String EndPlayerLostText = "Мы проиграли эту битву, но не войну";
 
         }
         

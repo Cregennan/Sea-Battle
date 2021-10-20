@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SourceChord.FluentWPF;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -18,12 +19,13 @@ namespace Sea_Battle
     /// <summary>
     /// Interaction logic for ManualPlaceShipsWindow.xaml
     /// </summary>
-    public partial class ManualPlaceShipsWindow : Window
+    public partial class ManualPlaceShipsWindow
     {   
         GameField gField = new GameField();
         
         int[] ShipCounts = new int[4]{ 4,3,2,1 };
 
+        int GameMode;
 
         int currentDirection = 0;
 
@@ -31,9 +33,9 @@ namespace Sea_Battle
 
 
 
-        public ManualPlaceShipsWindow()
+        public ManualPlaceShipsWindow(int gm)
         {
-
+            this.GameMode = gm;
             InitializeComponent();
 
             ShipProviders = new List<Rectangle>(){ FourShipProvider , ThreeShipProvider, TwoShipProvider, OneShipProvider};
@@ -310,6 +312,21 @@ namespace Sea_Battle
         {
             gField.Clear();
             UpdateField(gField, field);
+        }
+
+        private void StartGameClick(object sender, RoutedEventArgs e)
+        {
+            if (gField.Sizes[0] == 0 && gField.Sizes[1] == 0 && gField.Sizes[2] == 0 && gField.Sizes[3] == 0)
+            {
+                GameWindow game = new GameWindow(gField, GameMode);
+                this.Hide();
+                game.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBoxResult r = AcrylicMessageBox.Show(this, GameEngine.Messages.EditorNoEnoughShips);
+            }
         }
     }
 }
