@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         xmlns:local="clr-namespace:Sea_Battle"
+        Icon="Images/favicon-32x32.png"
         mc:Ignorable="d"
         Title="Морской бой" Height="450" Width="687.5" Background="{x:Null}">
     <Grid>

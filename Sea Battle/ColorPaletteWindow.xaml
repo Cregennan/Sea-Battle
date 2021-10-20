@@ -6,6 +6,7 @@
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         xmlns:local="clr-namespace:Sea_Battle"
         mc:Ignorable="d"
+                  Icon="Images/favicon-32x32.png"
         Title="Служебное окно - закрой его, матрос" Height="302.301" Width="409.356" Background="{x:Null}">
     <Canvas x:Name="colors">
         <Rectangle Fill="#FFF4F4F5" Height="28" Canvas.Left="19" Stroke="Black" Canvas.Top="19" Width="28"/>

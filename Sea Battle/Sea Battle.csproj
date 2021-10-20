@@ -154,5 +154,9 @@
   <ItemGroup>
     <Resource Include="Images\tutorial.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\favicon-32x32.png" />
+    <Resource Include="Images\favicon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

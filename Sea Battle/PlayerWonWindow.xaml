@@ -6,6 +6,7 @@
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         xmlns:local="clr-namespace:Sea_Battle"
         ResizeMode="NoResize"
+        Icon="Images/favicon-32x32.png"
         mc:Ignorable="d"
         x:Name="win"
         Title="Вы выиграли!" Height="343.443" Width="539.344" Background="{x:Null}">

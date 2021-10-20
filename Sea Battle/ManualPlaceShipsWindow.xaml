@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="Редактор поля" Height="644.672" Width="738.5"
         x:Name="mainWindow"
+                  Icon="Images/favicon-32x32.png"
         ResizeMode="NoResize"
         KeyDown="MainWindow_KeyDown" Background="{x:Null}"
         >
