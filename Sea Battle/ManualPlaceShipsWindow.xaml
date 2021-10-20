@@ -29,6 +29,8 @@
             <Button Style="{StaticResource ButtonRevealStyle}" Content="{StaticResource cleanImg}" Canvas.Left="20" Canvas.Top="224" Width="40" Click="Button_Click_2" Height="40" RenderTransformOrigin="0.6,0.912"/>
             <Button Style="{StaticResource ButtonRevealStyle}" Content="Начать игру" Canvas.Left="206" Canvas.Top="228" Width="98" Click="StartGameClick" Height="36"/>
         </Canvas>
-        <TextBlock Canvas.Left="45" Foreground="White" TextWrapping="Wrap" Text="Расставь корабли, Матрос!" Canvas.Top="445" FontSize="30"/>
+        <TextBlock Canvas.Left="45" Foreground="White" TextWrapping="Wrap" Text="Расставь корабли, Матрос!" FontWeight="Bold" Canvas.Top="445" FontSize="30"/>
+        <TextBlock Foreground="White" Canvas.Left="51" TextWrapping="Wrap" Text="Не знаешь что делать? Вот тебе " FontSize="16" Canvas.Top="510"/>
+        <Button Style="{StaticResource ButtonRevealStyle}" Content="Инструкция" Canvas.Left="302" Canvas.Top="512" Width="75" Click="Button_Click_3"/>
     </Canvas>
 </fw:AcrylicWindow>

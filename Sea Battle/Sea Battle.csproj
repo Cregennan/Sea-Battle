@@ -72,6 +72,9 @@
     <Compile Include="ManualPlaceShipsWindow.xaml.cs">
       <DependentUpon>ManualPlaceShipsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tutorial.xaml.cs">
+      <DependentUpon>Tutorial.xaml</DependentUpon>
+    </Compile>
     <Page Include="ColorPaletteWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -99,6 +102,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PlayerWonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tutorial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,6 +150,9 @@
     <Resource Include="Images\clean.png" />
     <Resource Include="Images\rotate.png" />
     <Resource Include="Images\shuffle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tutorial.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

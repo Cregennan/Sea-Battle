@@ -1,11 +1,13 @@
-﻿<Window x:Class="Sea_Battle.GameWindow"
+﻿<fw:AcrylicWindow x:Class="Sea_Battle.GameWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         xmlns:local="clr-namespace:Sea_Battle"
         ResizeMode="NoResize"
         mc:Ignorable="d"
+                  Background="{x:Null}"
         Title="MainWindow" Height="450" Width="800" x:Name="mainwindow">
 
     <Grid x:Name="mainGrid">
@@ -15,9 +17,9 @@
         <Canvas Background="AliceBlue" x:Name="enemyFieldCanvas"  Width="300" Height="300" Margin="447,84,47,37">
 
         </Canvas>
-        <TextBlock HorizontalAlignment="Left" Margin="43,395,0,0" TextWrapping="Wrap" Text="Ваше поле" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="447,392,0,0" TextWrapping="Wrap" Text="Поле противника" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" x:Name="GameStatus" Margin="286,36,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="236" FontWeight="Bold" FontSize="16"/>
+        <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="43,395,0,0" TextWrapping="Wrap" Text="Ваше поле" VerticalAlignment="Top"/>
+        <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="447,392,0,0" TextWrapping="Wrap" Text="Поле противника" VerticalAlignment="Top"/>
+        <TextBlock Foreground="White" HorizontalAlignment="Left" x:Name="GameStatus" Margin="286,36,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="236" FontWeight="Bold" FontSize="16"/>
     </Grid>
     
-</Window>
+</fw:AcrylicWindow>

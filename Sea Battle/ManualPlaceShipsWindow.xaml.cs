@@ -328,5 +328,11 @@ namespace Sea_Battle
                 MessageBoxResult r = AcrylicMessageBox.Show(this, GameEngine.Messages.EditorNoEnoughShips);
             }
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Tutorial t = new Tutorial();
+            t.ShowDialog();
+        }
     }
 }

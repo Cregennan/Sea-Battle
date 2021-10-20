@@ -20,7 +20,7 @@ namespace Sea_Battle
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class GameWindow : Window
+    public partial class GameWindow
     {
         GameField EnemyField;
         GameField PlayerField;

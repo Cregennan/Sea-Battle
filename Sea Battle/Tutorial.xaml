@@ -1,0 +1,15 @@
+﻿<fw:AcrylicWindow x:Class="Sea_Battle.Tutorial"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        xmlns:local="clr-namespace:Sea_Battle"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        Title="Инструкция, Матрос!" Background="{x:Null}" Height="427.665" Width="560.938">
+    <Grid>
+        <Image Source="Images/tutorial.png" Margin="0,0,-11,-11"></Image>
+
+    </Grid>
+</fw:AcrylicWindow>
