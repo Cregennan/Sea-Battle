@@ -164,6 +164,7 @@ namespace Sea_Battle
                 btn.DragLeave += (object sender, DragEventArgs e) => Btn_DragLeave(sender, e, gField, field);
                 btn.DragOver += (object sender, DragEventArgs e) => Btn_DragOver(sender, e, gField, field);
                 btn.Drop += (object sender, DragEventArgs e) => Btn_Drop(sender, e, gField, field);
+                btn.MouseDown += (object sender, MouseButtonEventArgs e) => Btn_MouseDown(sender, e, gField, canv);
                 btn.MouseDoubleClick += (object sender, MouseButtonEventArgs e) => Btn_MouseDoubleClick(sender, e, gField, field);
                 //rect.Stroke = GameEngine.Colors.GetColorFromRGBA("#FF000000");
                 //rect.StrokeThickness = 1;
@@ -172,6 +173,27 @@ namespace Sea_Battle
                 Canvas.SetTop(btn, (i / 10) * 30);
                 canv.Children.Add(btn);
             }
+        }
+
+        private void Btn_MouseDown(object sender, MouseButtonEventArgs e, GameField gField, Canvas canv)
+        {
+            Button btn = (Button)sender;
+            int position1d = canv.Children.IndexOf(btn);
+            Point p = GameEngine.Get2DPosition(position1d);
+            int state = gField.GetFState(p);
+            if (state != GameEngine.FieldStates.Ship)
+            {
+                return;
+            }
+            //List<Point> shipPoints = gField.GetAllShipParts(p);
+            //int count = shipPoints.Count;
+
+            //ValueTuple<int, Point> data = (count, p);
+
+
+
+
+            DragDrop.DoDragDrop((Button)sender, new DataObject(DataFormats.Serializable, p), DragDropEffects.Move);
         }
 
         private void Btn_MouseDoubleClick(object sender, MouseButtonEventArgs e, GameField gField, Canvas field)
@@ -222,6 +244,9 @@ namespace Sea_Battle
 
         private void Btn_DragEnter(object sender, DragEventArgs e, GameField gField, Canvas field)
         {
+
+
+
             int direction = currentDirection;
             int length = (int)e.Data.GetData(DataFormats.Serializable);
             Vector v =  GameEngine.DirectionVectors.GetDirectionVector(direction);
