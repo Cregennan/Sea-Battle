@@ -9,7 +9,7 @@
                   Icon="Images/favicon-32x32.png"
         mc:Ignorable="d"
                   Background="{x:Null}"
-        Title="MainWindow" Height="450" Width="800" x:Name="mainwindow">
+        Title="Игра" Height="450" Width="800" x:Name="mainwindow">
 
     <Grid x:Name="mainGrid">
         <Canvas Background="AliceBlue" x:Name="playerFieldCanvas"  Width="300" Height="300" Margin="43,84,451,37">
