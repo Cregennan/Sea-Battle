@@ -135,6 +135,19 @@ namespace Sea_Battle
             Rectangle rect = (Rectangle)sender;
             int numberInField = canv.Children.IndexOf(rect);
             Point fieldPosition  = GameEngine.Get2DPosition(numberInField);
+            int state = gField.GetFState(fieldPosition);
+            switch (state)
+            {
+                case GameEngine.FieldStates.DestroyedShipPiece:
+                case GameEngine.FieldStates.Dropped:
+                case GameEngine.FieldStates.TotalDestroyedShip:
+                    return;
+                default:
+                    break;
+            }
+
+
+
 
             (int AttackResult, List<Point> shipPoints) = gField.PerformAttack(fieldPosition);
             HandleFieldEvent(AttackResult, shipPoints, gField, canv);
@@ -232,6 +245,7 @@ namespace Sea_Battle
                 UpdateField(PlayerField, playerFieldCanvas);
                 //await Task.Delay(GameEngine.AI.WaitTimeMillis);
                 Thread.Sleep(GameEngine.AI.WaitTimeMillis);
+                GameStatus.Text = GameEngine.Messages.GamePlayerStep;
             }
             else
             {
