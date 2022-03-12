@@ -13,7 +13,7 @@
             <ColumnDefinition Width="337*"/>
             <ColumnDefinition Width="59*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="77,98,0,0" TextWrapping="Wrap" Text="Морской Бой" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Width="229" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="77,98,0,0" TextWrapping="Wrap" Text="Морской ♂Boy♂" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Width="229" Foreground="White"/>
         <ComboBox x:Name="gamemode" Style="{StaticResource ComboBoxRevealStyle}" HorizontalAlignment="Left" Margin="77,177,0,0" VerticalAlignment="Top" Width="180" />
         <Image Source="Images/Ricardo_Captain.png" Margin="338,46,-16,-20" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
